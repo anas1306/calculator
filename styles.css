@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Schoolbell&family=Silkscreen:wght@400;700&display=swap');
+
+body {
+    background-color: #121212;
+    color: #F9FAF8;
+    max-width: 75vw;
+    height: 100%;
+    margin:auto;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20vh;
+}
+
+.calc {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #332940;
+    padding: 5px;
+    gap: 10px;
+    height: 60vh;
+    width: 20vw;
+    border-radius: 20px;
+}
+
+.screen {
+    display:flex;
+    flex-grow: 0;
+    font-size: 2rem;
+    font-family: 'Silkscreen', sans-serif;
+    width: 95%;
+    height: 25%;
+    background-color: #121212;
+    border-radius: 16px;
+    padding: 0.5rem;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+
+.btns {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    gap: 5%;
+    flex-wrap: wrap;
+}
+
+.numperator {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-self: center;
+    font-family: "Schoolbell", cursive;
+    font-size: 1.5rem;
+    background-color: #332940;
+    height: 15%;
+    width: 20%;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.numbah {
+    color:white;
+}
+
+.ac {
+    color: red;
+}
+
+.operands {
+    color:lime;
+}
+
+.equalto {
+    background-color: lime;
+    color: white;
+}
+
+.numperator:active {
+    background-color: #c0c0c0;
+}
+
+.clear {
+    cursor: default;
+}
+
+.clear:active {
+    background-color: #332940;
+}
