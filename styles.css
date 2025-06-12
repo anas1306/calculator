@@ -1,15 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Schoolbell&family=Silkscreen:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Silkscreen:wght@400;700&display=swap');
 
 body {
     background-color: #121212;
     color: #F9FAF8;
-    max-width: 75vw;
-    height: 100%;
-    margin:auto;
+    height: calc(100vh - 16px);
     display:flex;
     justify-content: center;
     align-items: center;
-    padding: 20vh;
 }
 
 .calc {
@@ -18,11 +15,12 @@ body {
     align-items: center;
     flex-direction: column;
     background-color: #332940;
-    padding: 5px;
+    padding: 7.5px;
     gap: 10px;
-    height: 60vh;
-    width: 20vw;
+    height: 400px;
+    width: 300px;
     border-radius: 20px;
+    box-shadow: 7px 7px black;
 }
 
 .screen {
@@ -54,7 +52,7 @@ body {
     align-items: center;
     justify-content: center;
     align-self: center;
-    font-family: "Schoolbell", cursive;
+    font-family: "Comfortaa", sans-serif;
     font-size: 1.5rem;
     background-color: #332940;
     height: 15%;
