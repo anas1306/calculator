@@ -23,7 +23,7 @@ function checkForDot(toChecked) {
 }
 
 function operate(expression) {
-    Array.from(display.textContent).forEach(e => {
+    Array.from(display.value).forEach(e => {
         if (e === "+") {
             sepNumber = expression.split("+")
             result = parseFloat(sepNumber[0]) + parseFloat(sepNumber[1])
@@ -58,50 +58,52 @@ let result = "NOPE"
 
 buttons.forEach(btn => {
     btn.addEventListener("click", () => {
-        if (display.textContent.length < 12) {
-            if (digits.includes(parseInt(btn.textContent))) {
-                if (display.textContent === "0") {
-                    display.textContent = btn.textContent;
-                } else {
-                    display.textContent += btn.textContent;
-                }
-            } else if (btn.textContent === "." && checkForDot(display.textContent) == true && display.textContent != 0) {
-                display.textContent += btn.textContent;
-            } else if (
-                symbols.includes(btn.textContent) &&
-                active == 0 &&
-                display.textContent != 0
-            ) {
-                display.textContent += btn.textContent;
-                active = 1;
-            } else if (
-                active == 1 && 
-                symbols.includes(btn.textContent) == true &&
-                symbols.includes(display.textContent.charAt(display.textContent.length - 1)) == false
-            ) {
-                display.textContent = operate(display.textContent);
-                display.textContent += btn.textContent;
+        if (digits.includes(parseInt(btn.textContent))) {
+            if (display.value === "0") {
+                display.value = btn.textContent;
+            } else {
+                display.value += btn.textContent;
             }
+        } else if (btn.textContent === "." && checkForDot(display.value) == true && display.value != 0) {
+            display.value += btn.textContent;
+        } else if (
+            (display.value != 0 || btn.textContent == "-") &&
+            symbols.includes(btn.textContent) &&
+            active == 0 
+        ) {
+            if (display.value == "0") {
+                display.value = btn.textContent;
+            } else {
+                display.value += btn.textContent;
+                active = 1;
+            }
+        } else if (
+            active == 1 && 
+            symbols.includes(btn.textContent) == true &&
+            symbols.includes(display.value.charAt(display.value.length - 1)) == false
+        ) {
+            display.value = operate(display.value);
+            display.value += btn.textContent;
         }
         
         if (
             btn.textContent === "DEL" && 
-            display.textContent != 0 
+            display.value != 0 
         ) {
-            if (symbols.includes(display.textContent.charAt(display.textContent.length - 1))) {
+            if (symbols.includes(display.value.charAt(display.value.length - 1))) {
             active = 0;
             }
-            display.textContent = display.textContent.slice(0, -1);
+            display.value = display.value.slice(0, -1);
         } else if (btn.textContent === "AC") {
-            display.textContent = "0";
+            display.value = "0";
             active = 0;
         } else if (btn.textContent === "=") {
             if (
-                symbols.includes(display.textContent.charAt(display.textContent.length - 1)) || 
-                display.textContent.charAt(display.textContent.length - 1) === "."
+                symbols.includes(display.value.charAt(display.value.length - 1)) || 
+                display.value.charAt(display.value.length - 1) === "."
         ) {
             } else {
-                display.textContent = operate(display.textContent);
+                display.value = operate(display.value);
                 active = 0;
             }
         }

@@ -31,10 +31,11 @@ body {
     width: 95%;
     height: 25%;
     background-color: #121212;
+    color: white;
+    border: none;
     border-radius: 16px;
     padding: 0.5rem;
-    justify-content: flex-end;
-    align-items: flex-end;
+    text-align: end;
 }
 
 .btns {
