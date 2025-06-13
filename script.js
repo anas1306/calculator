@@ -55,6 +55,7 @@ const symbols =  ["+", "-", "×", "÷"]
 let active = 0
 let symbol = 0
 let result = "NOPE"
+let enterActive = 0
 
 buttons.forEach(btn => {
     btn.addEventListener("click", () => {
@@ -76,6 +77,7 @@ buttons.forEach(btn => {
             } else {
                 display.value += btn.textContent;
                 active = 1;
+                enterActive = 1;
             }
         } else if (
             active == 1 && 
@@ -92,6 +94,7 @@ buttons.forEach(btn => {
         ) {
             if (symbols.includes(display.value.charAt(display.value.length - 1))) {
             active = 0;
+            enterActive = 0;
             }
             display.value = display.value.slice(0, -1);
         } else if (btn.textContent === "AC") {
@@ -100,7 +103,8 @@ buttons.forEach(btn => {
         } else if (btn.textContent === "=") {
             if (
                 symbols.includes(display.value.charAt(display.value.length - 1)) || 
-                display.value.charAt(display.value.length - 1) === "."
+                display.value.charAt(display.value.length - 1) === "." ||
+                enterActive == 0
         ) {
             } else {
                 display.value = operate(display.value);
